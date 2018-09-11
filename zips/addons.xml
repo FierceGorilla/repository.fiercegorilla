@@ -595,6 +595,18 @@ Fixed search issue caused by character accents
 	</extension>
 </addon>
 
+<addon id="script.exodus.metadata" version="1.0.3" name="Exodus Metadata" provider-name="Exodus">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the Exodus Addon</summary>
+		<description>Metadata for Exodus are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="script.fantastic.artwork" version="3.0" name="fantastic Artwork" provider-name="fantastic">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
@@ -603,6 +615,18 @@ Fixed search issue caused by character accents
 	<extension point="xbmc.addon.metadata">
 		<summary>Themes for the fantastic Addon</summary>
 		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.fantastic.metadata" version="3.0" name="fantastic Metadata" provider-name="fantastic">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the fantastic Addon</summary>
+		<description>Metadata for fantastic are maintained separately to make distribution of the the addon itself easier/faster.</description>
 		<platform>all</platform>
 	</extension>
 </addon>
@@ -619,6 +643,18 @@ Fixed search issue caused by character accents
 	</extension>
 </addon>
 
+<addon id="script.incursion.metadata" version="1.0.3" name="Incursion Metadata" provider-name="Incursion">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the Incursion Addon</summary>
+		<description>Metadata for Incursion are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="script.Yoda.artwork" version="1.0.5" name="Yoda Artwork" provider-name="S">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
@@ -627,6 +663,18 @@ Fixed search issue caused by character accents
 	<extension point="xbmc.addon.metadata">
 		<summary>Themes for the Yoda Addon</summary>
 		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.Yoda.metadata" version="1.0.2" name="Yoda Metadata" provider-name="S">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the Yoda Addon</summary>
+		<description>Metadata for Yoda are maintained separately to make distribution of the the addon itself easier/faster.</description>
 		<platform>all</platform>
 	</extension>
 </addon>
