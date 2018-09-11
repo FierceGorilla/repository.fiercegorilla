@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.fiercegorilla" name="Fierce Gorilla Repository" version="1.0" provider-name="Fierce Gorilla">
+<addon id="repository.fiercegorilla" name="Fierce Gorilla Repository" version="0.0.1" provider-name="Fierce Gorilla">
 	<extension point="xbmc.addon.repository" name="Fierce Gorilla Repository">
 		<dir>
 			<info compressed="false">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml</info>
@@ -31,12 +31,10 @@
 			<checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
 			<datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
 		</dir>
-		
 		<info compressed="false">https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/addons.xml</info>
 		<checksum>https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/addons.xml.md5</checksum>
 		<datadir zip="true">https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/</datadir>
 	</extension>
-	
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">[COLOR red]Fierce Gorilla Repository[/COLOR]</summary>
 		<description lang="en">Fierce Gorilla Repository updated weekly with only the [COLOR red]BEST[/COLOR] addons</description>
