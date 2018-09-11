@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../plugin.video.cartoonexodus/.idea/plugin.video.exodus.iml" filepath="$PROJECT_DIR$/../plugin.video.cartoonexodus/.idea/plugin.video.exodus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../script.exodus.artwork/.idea/script.exodus.artwork.iml" filepath="$PROJECT_DIR$/../script.exodus.artwork/.idea/script.exodus.artwork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../script.exodus.metadata/.idea/script.exodus.metadata.iml" filepath="$PROJECT_DIR$/../script.exodus.metadata/.idea/script.exodus.metadata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/script.module.exodus.iml" filepath="$PROJECT_DIR$/.idea/script.module.exodus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../script.module.resolveurl/.idea/script.module.resolveurl.iml" filepath="$PROJECT_DIR$/../script.module.resolveurl/.idea/script.module.resolveurl.iml" />
+    </modules>
+  </component>
+</project>
