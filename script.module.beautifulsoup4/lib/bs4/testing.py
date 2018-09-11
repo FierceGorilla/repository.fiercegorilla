@@ -69,18 +69,6 @@ class HTMLTreeBuilderSmokeTest(object):
     markup in these tests, there's not much room for interpretation.
     """
 
-    def test_empty_element_tags(self):
-        """Verify that all HTML4 and HTML5 empty element (aka void element) tags
-        are handled correctly.
-        """
-        for name in [
-                'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'keygen', 'link', 'menuitem', 'meta', 'param', 'source', 'track', 'wbr',
-                'spacer', 'frame'
-        ]:
-            soup = self.soup("")
-            new_tag = soup.new_tag(name)
-            self.assertEqual(True, new_tag.is_empty_element)
-    
     def test_pickle_and_unpickle_identity(self):
         # Pickling a tree, then unpickling it, yields a tree identical
         # to the original.
@@ -155,7 +143,7 @@ class HTMLTreeBuilderSmokeTest(object):
         # process_markup correctly sets processing_instruction_class
         # even when the markup is already Unicode and there is no
         # need to process anything.
-        markup = """<?PITarget PIContent?>"""
+        markup = u"""<?PITarget PIContent?>"""
         soup = self.soup(markup)
         self.assertEqual(markup, soup.decode())
 
@@ -312,14 +300,14 @@ Hello, world!
         self.assertSoupEquals('<a b="<a>"></a>', '<a b="&lt;a&gt;"></a>')
 
     def test_entities_in_attributes_converted_to_unicode(self):
-        expect = '<p id="pi\N{LATIN SMALL LETTER N WITH TILDE}ata"></p>'
+        expect = u'<p id="pi\N{LATIN SMALL LETTER N WITH TILDE}ata"></p>'
         self.assertSoupEquals('<p id="pi&#241;ata"></p>', expect)
         self.assertSoupEquals('<p id="pi&#xf1;ata"></p>', expect)
         self.assertSoupEquals('<p id="pi&#Xf1;ata"></p>', expect)
         self.assertSoupEquals('<p id="pi&ntilde;ata"></p>', expect)
 
     def test_entities_in_text_converted_to_unicode(self):
-        expect = '<p>pi\N{LATIN SMALL LETTER N WITH TILDE}ata</p>'
+        expect = u'<p>pi\N{LATIN SMALL LETTER N WITH TILDE}ata</p>'
         self.assertSoupEquals("<p>pi&#241;ata</p>", expect)
         self.assertSoupEquals("<p>pi&#xf1;ata</p>", expect)
         self.assertSoupEquals("<p>pi&#Xf1;ata</p>", expect)
@@ -330,7 +318,7 @@ Hello, world!
                               '<p>I said "good day!"</p>')
 
     def test_out_of_range_entity(self):
-        expect = "\N{REPLACEMENT CHARACTER}"
+        expect = u"\N{REPLACEMENT CHARACTER}"
         self.assertSoupEquals("&#10000000000000;", expect)
         self.assertSoupEquals("&#x10000000000000;", expect)
         self.assertSoupEquals("&#1000000000;", expect)
@@ -342,13 +330,6 @@ Hello, world!
         self.assertEqual("p", soup.p.name)
         self.assertConnectedness(soup)
 
-    def test_empty_element_tags(self):
-        """Verify consistent handling of empty-element tags,
-        no matter how they come in through the markup.
-        """
-        self.assertSoupEquals('<br/><br/><br/>', "<br/><br/><br/>")
-        self.assertSoupEquals('<br /><br /><br />', "<br/><br/><br/>")
-        
     def test_head_tag_between_head_and_body(self):
         "Prevent recurrence of a bug in the html5lib treebuilder."
         content = """<html><head></head>
@@ -408,9 +389,9 @@ Hello, world!
         # A seemingly innocuous document... but it's in Unicode! And
         # it contains characters that can't be represented in the
         # encoding found in the  declaration! The horror!
-        markup = '<html><head><meta encoding="euc-jp"></head><body>Sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!</body>'
+        markup = u'<html><head><meta encoding="euc-jp"></head><body>Sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!</body>'
         soup = self.soup(markup)
-        self.assertEqual('Sacr\xe9 bleu!', soup.body.string)
+        self.assertEqual(u'Sacr\xe9 bleu!', soup.body.string)
 
     def test_soupstrainer(self):
         """Parsers should be able to work with SoupStrainers."""
@@ -450,7 +431,7 @@ Hello, world!
         # Both XML and HTML entities are converted to Unicode characters
         # during parsing.
         text = "<p>&lt;&lt;sacr&eacute;&#32;bleu!&gt;&gt;</p>"
-        expected = "<p>&lt;&lt;sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!&gt;&gt;</p>"
+        expected = u"<p>&lt;&lt;sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!&gt;&gt;</p>"
         self.assertSoupEquals(text, expected)
 
     def test_smart_quotes_converted_on_the_way_in(self):
@@ -460,15 +441,15 @@ Hello, world!
         soup = self.soup(quote)
         self.assertEqual(
             soup.p.string,
-            "\N{LEFT SINGLE QUOTATION MARK}Foo\N{RIGHT SINGLE QUOTATION MARK}")
+            u"\N{LEFT SINGLE QUOTATION MARK}Foo\N{RIGHT SINGLE QUOTATION MARK}")
 
     def test_non_breaking_spaces_converted_on_the_way_in(self):
         soup = self.soup("<a>&nbsp;&nbsp;</a>")
-        self.assertEqual(soup.a.string, "\N{NO-BREAK SPACE}" * 2)
+        self.assertEqual(soup.a.string, u"\N{NO-BREAK SPACE}" * 2)
 
     def test_entities_converted_on_the_way_out(self):
         text = "<p>&lt;&lt;sacr&eacute;&#32;bleu!&gt;&gt;</p>"
-        expected = "<p>&lt;&lt;sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!&gt;&gt;</p>".encode("utf-8")
+        expected = u"<p>&lt;&lt;sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!&gt;&gt;</p>".encode("utf-8")
         soup = self.soup(text)
         self.assertEqual(soup.p.encode("utf-8"), expected)
 
@@ -477,7 +458,7 @@ Hello, world!
         # easy-to-understand document.
 
         # Here it is in Unicode. Note that it claims to be in ISO-Latin-1.
-        unicode_html = '<html><head><meta content="text/html; charset=ISO-Latin-1" http-equiv="Content-type"/></head><body><p>Sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!</p></body></html>'
+        unicode_html = u'<html><head><meta content="text/html; charset=ISO-Latin-1" http-equiv="Content-type"/></head><body><p>Sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!</p></body></html>'
 
         # That's because we're going to encode it into ISO-Latin-1, and use
         # that to test.
@@ -637,15 +618,15 @@ class XMLTreeBuilderSmokeTest(object):
         self.assertTrue(b"&lt; &lt; hey &gt; &gt;" in encoded)
 
     def test_can_parse_unicode_document(self):
-        markup = '<?xml version="1.0" encoding="euc-jp"><root>Sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!</root>'
+        markup = u'<?xml version="1.0" encoding="euc-jp"><root>Sacr\N{LATIN SMALL LETTER E WITH ACUTE} bleu!</root>'
         soup = self.soup(markup)
-        self.assertEqual('Sacr\xe9 bleu!', soup.root.string)
+        self.assertEqual(u'Sacr\xe9 bleu!', soup.root.string)
 
     def test_popping_namespaced_tag(self):
         markup = '<rss xmlns:dc="foo"><dc:creator>b</dc:creator><dc:date>2012-07-02T20:33:42Z</dc:date><dc:rights>c</dc:rights><image>d</image></rss>'
         soup = self.soup(markup)
         self.assertEqual(
-            str(soup.rss), markup)
+            unicode(soup.rss), markup)
 
     def test_docstring_includes_correct_encoding(self):
         soup = self.soup("<root/>")
@@ -676,51 +657,17 @@ class XMLTreeBuilderSmokeTest(object):
     def test_closing_namespaced_tag(self):
         markup = '<p xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:date>20010504</dc:date></p>'
         soup = self.soup(markup)
-        self.assertEqual(str(soup.p), markup)
+        self.assertEqual(unicode(soup.p), markup)
 
     def test_namespaced_attributes(self):
         markup = '<foo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><bar xsi:schemaLocation="http://www.example.com"/></foo>'
         soup = self.soup(markup)
-        self.assertEqual(str(soup.foo), markup)
+        self.assertEqual(unicode(soup.foo), markup)
 
     def test_namespaced_attributes_xml_namespace(self):
         markup = '<foo xml:lang="fr">bar</foo>'
         soup = self.soup(markup)
-        self.assertEqual(str(soup.foo), markup)
-
-    def test_find_by_prefixed_name(self):
-        doc = """<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns="http://example.com/ns0"
-    xmlns:ns1="http://example.com/ns1"
-    xmlns:ns2="http://example.com/ns2"
-    <ns1:tag>foo</ns1:tag>
-    <ns1:tag>bar</ns1:tag>
-    <ns2:tag key="value">baz</ns2:tag>
-</Document>
-"""
-        soup = self.soup(doc)
-
-        # There are three <tag> tags.
-        self.assertEqual(3, len(soup.find_all('tag')))
-
-        # But two of them are ns1:tag and one of them is ns2:tag.
-        self.assertEqual(2, len(soup.find_all('ns1:tag')))
-        self.assertEqual(1, len(soup.find_all('ns2:tag')))
-        
-        self.assertEqual(1, len(soup.find_all('ns2:tag', key='value')))
-        self.assertEqual(3, len(soup.find_all(['ns1:tag', 'ns2:tag'])))
-        
-    def test_copy_tag_preserves_namespace(self):
-        xml = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:document xmlns:w="http://example.com/ns0"/>"""
-    
-        soup = self.soup(xml)
-        tag = soup.document
-        duplicate = copy.copy(tag)
-
-        # The two tags have the same namespace prefix.
-        self.assertEqual(tag.prefix, duplicate.prefix)
-
+        self.assertEqual(unicode(soup.foo), markup)
 
 class HTML5TreeBuilderSmokeTest(HTMLTreeBuilderSmokeTest):
     """Smoke test for a tree builder that supports HTML5."""
