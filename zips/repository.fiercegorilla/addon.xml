@@ -39,7 +39,7 @@
 	
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">[COLOR red]Fierce Gorilla Repository[/COLOR]</summary>
-		<description lang="en">Fierce Gorilla Repository updated weekly with only the [COLOR red]best[/COLOR] addons</description>
+		<description lang="en">Fierce Gorilla Repository updated weekly with only the [COLOR red]BEST[/COLOR] addons</description>
 		<genre></genre>
 	</extension>
 </addon>
