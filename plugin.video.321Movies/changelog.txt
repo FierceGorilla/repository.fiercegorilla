@@ -1,0 +1,21 @@
+v1.0.5
+Dead Links Fixed
+Added A Option in the Settings To Change The Baseurl
+
+v1.0.4
+Dead Links Fixed
+Code Clean Up
+Added repoCheck - Checks if you have installed the Mister-X Repo
+Added Next Page for Recently Added Episodes
+
+v1.0.3
+Author Name Changed
+
+v1.0.2
+Fix Dead links
+
+v1.0.1
+Episodes better organized
+
+v1.0.0
+Initial Release
