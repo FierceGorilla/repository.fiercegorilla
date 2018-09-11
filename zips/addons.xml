@@ -1,30 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.1channel" version="4.0.06" name="PrimeWire" provider-name="k3l3vra">
-    <requires>
-        <import addon="xbmc.python" version="2.1.0"/>
-        <import addon="script.module.urlresolver" version="3.0"/>
-        <import addon="script.module.addon.common" version="2.0.0" />
-        <import addon="script.module.metahandler" version="2.6.0" />
-        <import addon="script.module.myconnpy" version="1.1.6" />
-        <import addon="script.module.axel.downloader" version="0.2.0" optional="true"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="service.py" start="startup">
-    </extension>
-    <extension point="xbmc.addon.metadata">
-        <summary>Browse PrimeWire.is</summary>
-        <description>Play a wide selection of movies and TV shows from PrimeWire.is.
-***This addon is supported at [COLOR blue]www.tvaddons.co[/COLOR], [COLOR white][B]NOT[/B][/COLOR] [COLOR red]kodi.tv[/COLOR]. ***
-        </description>
-        <platform>all</platform>
-        <website>https://www.tvaddons.co/</website>
-		<forum>https://www.tvaddons.co/forums</forum>
-    </extension>
-</addon>
-
 <addon id="plugin.video.ATOMREBORN"
        name="Atom Reborn"
        version="2.3"
@@ -53,21 +28,6 @@
   <extension point="xbmc.addon.metadata">
     <summary lang="en">ATOM REBORN is the new atom any other ATOM you have is not made by me </summary>
     <description lang="en">movies and tv shows</description>
-    <platform>all</platform>
-  </extension>
-</addon>
-
-<addon id="plugin.video.cartoonhd" name="Cartoon HD" version="1.3.4" provider-name=".[COLOR blue]X[/COLOR]unity[COLOR blue]T[/COLOR]alk">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-    <import addon="script.module.urlresolver" version="0.0.1"/>
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Cartoon Kids HD</summary>
-    <description lang="en">Watch All Your Favourite Kids Cartoons</description>
     <platform>all</platform>
   </extension>
 </addon>
@@ -246,22 +206,6 @@ http://www2.0123movies.org
 http://www2.gostream.sc
 		</news>
 	</extension>
-</addon>
-
-<addon id="plugin.video.flixanity" name="[B][COLOR ghostwhite]Flixanity[/COLOR][/B]" version="2.1" provider-name="sClarke">
-  <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
-	<import addon="script.module.urlresolver" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <summary lang="en">Streaming Content From flixanity.online</summary>
-    <description lang="en">Flixanity - Streaming Content From flixanity.online</description>
-	<disclaimer lang="en">The author does not host or own any content found within this Addon. The Author is not connected to or in any other way affiliated with Kodi, Team Kodi, or the XBMC Foundation.</disclaimer>
-    <platform>all</platform>
-  </extension>
 </addon>
 
 <addon id="plugin.video.movietheaterbutter" version="0.1.17.4" name="Movie Theater Butter" provider-name="Incursion">
