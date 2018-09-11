@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.fiercegorilla" name="Fierce Gorilla Repo" version="0.0.1" provider-name="FG">
+<addon id="repository.fiercegorilla" name="Fierce Gorilla Repository" version="1.0" provider-name="Fierce Gorilla">
 	<extension point="xbmc.addon.repository" name="Fierce Gorilla Repository">
 		<dir>
-			<info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+			<info compressed="false">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml</info>
+			<checksum>https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/zips/</datadir>
 		</dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>111111111111111
+			<checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
+		</dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml</info>33333333333333333333
+			<checksum>https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/marcelveldt/repository.marcelveldt/master/</datadir>
+		</dir>
+		<dir>
+			<info compressed="false">https://github.com/jdf76/repository/raw/master/addons.xml</info>
+			<checksum>https://github.com/jdf76/repository/raw/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://github.com/jdf76/repository/raw/master/zips</datadir>
+		</dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>22222222222222
+			<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+		</dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>4444444444444444444
+			<checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
+		</dir>
+		
 		<info compressed="false">https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/addons.xml</info>
 		<checksum>https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/addons.xml.md5</checksum>
 		<datadir zip="true">https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/</datadir>
 	</extension>
+	
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Fierce Gorilla Repo</summary>
-		<description lang="en">FG Repo</description>
+		<summary lang="en">[COLOR red]Fierce Gorilla Repository[/COLOR]</summary>
+		<description lang="en">Fierce Gorilla Repository updated weekly with only the [COLOR red]best[/COLOR] addons</description>
 		<genre></genre>
 	</extension>
 </addon>
