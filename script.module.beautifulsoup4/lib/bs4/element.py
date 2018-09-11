@@ -26,22 +26,22 @@ def _alias(attr):
     return alias
 
 
-class NamespacedAttribute(unicode):
+class NamespacedAttribute(str):
 
     def __new__(cls, prefix, name, namespace=None):
         if name is None:
-            obj = unicode.__new__(cls, prefix)
+            obj = str.__new__(cls, prefix)
         elif prefix is None:
             # Not really namespaced.
-            obj = unicode.__new__(cls, name)
+            obj = str.__new__(cls, name)
         else:
-            obj = unicode.__new__(cls, prefix + ":" + name)
+            obj = str.__new__(cls, prefix + ":" + name)
         obj.prefix = prefix
         obj.name = name
         obj.namespace = namespace
         return obj
 
-class AttributeValueWithCharsetSubstitution(unicode):
+class AttributeValueWithCharsetSubstitution(str):
     """A stand-in object for a character encoding specified in HTML."""
 
 class CharsetMetaAttributeValue(AttributeValueWithCharsetSubstitution):
@@ -52,7 +52,7 @@ class CharsetMetaAttributeValue(AttributeValueWithCharsetSubstitution):
     """
 
     def __new__(cls, original_value):
-        obj = unicode.__new__(cls, original_value)
+        obj = str.__new__(cls, original_value)
         obj.original_value = original_value
         return obj
 
@@ -75,9 +75,9 @@ class ContentMetaAttributeValue(AttributeValueWithCharsetSubstitution):
         match = cls.CHARSET_RE.search(original_value)
         if match is None:
             # No substitution necessary.
-            return unicode.__new__(unicode, original_value)
+            return str.__new__(str, original_value)
 
-        obj = unicode.__new__(cls, original_value)
+        obj = str.__new__(cls, original_value)
         obj.original_value = original_value
         return obj
 
@@ -131,8 +131,8 @@ class PageElement(object):
     # to methods like encode() and prettify():
     #
     # "html" - All Unicode characters with corresponding HTML entities
-    #   are converted to those entities on output.
-    # "minimal" - Bare ampersands and angle brackets are converted to
+    #   are converted to those entities on output. 
+   # "minimal" - Bare ampersands and angle brackets are converted to
     #   XML entities: &amp; &lt; &gt;
     # None - The null formatter. Unicode characters are never
     #   converted to entities.  This is not recommended, but it's
@@ -312,7 +312,7 @@ class PageElement(object):
             raise ValueError("Cannot insert None into a tag.")
         if new_child is self:
             raise ValueError("Cannot insert a tag into itself.")
-        if (isinstance(new_child, basestring)
+        if (isinstance(new_child, str)
             and not isinstance(new_child, NavigableString)):
             new_child = NavigableString(new_child)
 
@@ -533,11 +533,18 @@ class PageElement(object):
                 result = (element for element in generator
                           if isinstance(element, Tag))
                 return ResultSet(strainer, result)
-            elif isinstance(name, basestring):
+            elif isinstance(name, str):
                 # Optimization to find all tags with a given name.
+                if name.count(':') == 1:
+                    # This is a name with a prefix.
+                    prefix, name = name.split(':', 1)
+                else:
+                    prefix = None
                 result = (element for element in generator
                           if isinstance(element, Tag)
-                            and element.name == name)
+                            and element.name == name
+                          and (prefix is None or element.prefix == prefix)
+                )
                 return ResultSet(strainer, result)
         results = ResultSet(strainer)
         while True:
@@ -684,7 +691,7 @@ class PageElement(object):
         return self.parents
 
 
-class NavigableString(unicode, PageElement):
+class NavigableString(str, PageElement):
 
     PREFIX = ''
     SUFFIX = ''
@@ -702,10 +709,10 @@ class NavigableString(unicode, PageElement):
         passed in to the superclass's __new__ or the superclass won't know
         how to handle non-ASCII characters.
         """
-        if isinstance(value, unicode):
-            u = unicode.__new__(cls, value)
+        if isinstance(value, str):
+            u = str.__new__(cls, value)
         else:
-            u = unicode.__new__(cls, value, DEFAULT_OUTPUT_ENCODING)
+            u = str.__new__(cls, value, DEFAULT_OUTPUT_ENCODING)
         u.setup()
         return u
 
@@ -716,7 +723,7 @@ class NavigableString(unicode, PageElement):
         return type(self)(self)
 
     def __getnewargs__(self):
-        return (unicode(self),)
+        return (str(self),)
 
     def __getattr__(self, attr):
         """text.string gives you text. This is for backwards
@@ -756,29 +763,29 @@ class PreformattedString(NavigableString):
 
 class CData(PreformattedString):
 
-    PREFIX = u'<![CDATA['
-    SUFFIX = u']]>'
+    PREFIX = '<![CDATA['
+    SUFFIX = ']]>'
 
 class ProcessingInstruction(PreformattedString):
     """A SGML processing instruction."""
 
-    PREFIX = u'<?'
-    SUFFIX = u'>'
+    PREFIX = '<?'
+    SUFFIX = '>'
 
 class XMLProcessingInstruction(ProcessingInstruction):
     """An XML processing instruction."""
-    PREFIX = u'<?'
-    SUFFIX = u'?>'
+    PREFIX = '<?'
+    SUFFIX = '?>'
 
 class Comment(PreformattedString):
 
-    PREFIX = u'<!--'
-    SUFFIX = u'-->'
+    PREFIX = '<!--'
+    SUFFIX = '-->'
 
 
 class Declaration(PreformattedString):
-    PREFIX = u'<?'
-    SUFFIX = u'?>'
+    PREFIX = '<?'
+    SUFFIX = '?>'
 
 
 class Doctype(PreformattedString):
@@ -795,8 +802,8 @@ class Doctype(PreformattedString):
 
         return Doctype(value)
 
-    PREFIX = u'<!DOCTYPE '
-    SUFFIX = u'>\n'
+    PREFIX = '<!DOCTYPE '
+    SUFFIX = '>\n'
 
 
 class Tag(PageElement):
@@ -863,7 +870,7 @@ class Tag(PageElement):
         Its contents are a copy of the old Tag's contents.
         """
         clone = type(self)(None, self.builder, self.name, self.namespace,
-                           self.nsprefix, self.attrs, is_xml=self._is_xml)
+                           self.prefix, self.attrs, is_xml=self._is_xml)
         for attr in ('can_be_empty_element', 'hidden'):
             setattr(clone, attr, getattr(self, attr))
         for child in self.contents:
@@ -935,7 +942,7 @@ class Tag(PageElement):
         for string in self._all_strings(True):
             yield string
 
-    def get_text(self, separator=u"", strip=False,
+    def get_text(self, separator="", strip=False,
                  types=(NavigableString, CData)):
         """
         Get all child strings, concatenated using the given separator.
@@ -985,6 +992,13 @@ class Tag(PageElement):
         attribute."""
         return self.attrs.get(key, default)
 
+    def get_attribute_list(self, key, default=None):
+        """The same as get(), but always returns a list."""
+        value = self.get(key, default)
+        if not isinstance(value, list):
+            value = [value]
+        return value
+    
     def has_attr(self, key):
         return key in self.attrs
 
@@ -1007,7 +1021,7 @@ class Tag(PageElement):
     def __contains__(self, x):
         return x in self.contents
 
-    def __nonzero__(self):
+    def __bool__(self):
         "A tag is non-None even if it has no contents."
         return True
 
@@ -1128,8 +1142,8 @@ class Tag(PageElement):
                 else:
                     if isinstance(val, list) or isinstance(val, tuple):
                         val = ' '.join(val)
-                    elif not isinstance(val, basestring):
-                        val = unicode(val)
+                    elif not isinstance(val, str):
+                        val = str(val)
                     elif (
                         isinstance(val, AttributeValueWithCharsetSubstitution)
                         and eventual_encoding is not None):
@@ -1137,7 +1151,7 @@ class Tag(PageElement):
 
                     text = self.format_string(val, formatter)
                     decoded = (
-                        unicode(key) + '='
+                        str(key) + '='
                         + EntitySubstitution.quoted_attribute_value(text))
                 attrs.append(decoded)
         close = ''
@@ -1354,7 +1368,7 @@ class Tag(PageElement):
                 'Final combinator "%s" is missing an argument.' % tokens[-1])
 
         if self._select_debug:
-            print 'Running CSS selector "%s"' % selector
+            print('Running CSS selector "%s"' % selector)
 
         for index, token in enumerate(tokens):
             new_context = []
@@ -1363,11 +1377,11 @@ class Tag(PageElement):
             if tokens[index-1] in self._selector_combinators:
                 # This token was consumed by the previous combinator. Skip it.
                 if self._select_debug:
-                    print '  Token was consumed by the previous combinator.'
+                    print('  Token was consumed by the previous combinator.')
                 continue
 
             if self._select_debug:
-                print ' Considering token "%s"' % token
+                print(' Considering token "%s"' % token)
             recursive_candidate_generator = None
             tag_name = None
 
@@ -1474,14 +1488,14 @@ class Tag(PageElement):
                 next_token = tokens[index+1]
                 def recursive_select(tag):
                     if self._select_debug:
-                        print '    Calling select("%s") recursively on %s %s' % (next_token, tag.name, tag.attrs)
-                        print '-' * 40
+                        print('    Calling select("%s") recursively on %s %s' % (next_token, tag.name, tag.attrs))
+                        print('-' * 40)
                     for i in tag.select(next_token, recursive_candidate_generator):
                         if self._select_debug:
-                            print '(Recursive select picked up candidate %s %s)' % (i.name, i.attrs)
+                            print('(Recursive select picked up candidate %s %s)' % (i.name, i.attrs))
                         yield i
                     if self._select_debug:
-                        print '-' * 40
+                        print('-' * 40)
                 _use_candidate_generator = recursive_select
             elif _candidate_generator is None:
                 # By default, a tag's candidates are all of its
@@ -1492,7 +1506,7 @@ class Tag(PageElement):
                         check = "[any]"
                     else:
                         check = tag_name
-                    print '   Default candidate generator, tag name="%s"' % check
+                    print('   Default candidate generator, tag name="%s"' % check)
                 if self._select_debug:
                     # This is redundant with later code, but it stops
                     # a bunch of bogus tags from cluttering up the
@@ -1513,8 +1527,8 @@ class Tag(PageElement):
             count = 0
             for tag in current_context:
                 if self._select_debug:
-                    print "    Running candidate generator on %s %s" % (
-                        tag.name, repr(tag.attrs))
+                    print("    Running candidate generator on %s %s" % (
+                        tag.name, repr(tag.attrs)))
                 for candidate in _use_candidate_generator(tag):
                     if not isinstance(candidate, Tag):
                         continue
@@ -1529,23 +1543,23 @@ class Tag(PageElement):
                             break
                     if checker is None or result:
                         if self._select_debug:
-                            print "     SUCCESS %s %s" % (candidate.name, repr(candidate.attrs))
+                            print("     SUCCESS %s %s" % (candidate.name, repr(candidate.attrs)))
                         if id(candidate) not in new_context_ids:
                             # If a tag matches a selector more than once,
                             # don't include it in the context more than once.
                             new_context.append(candidate)
                             new_context_ids.add(id(candidate))
                     elif self._select_debug:
-                        print "     FAILURE %s %s" % (candidate.name, repr(candidate.attrs))
+                        print("     FAILURE %s %s" % (candidate.name, repr(candidate.attrs)))
 
             current_context = new_context
         if limit and len(current_context) >= limit:
             current_context = current_context[:limit]
 
         if self._select_debug:
-            print "Final verdict:"
+            print("Final verdict:")
             for i in current_context:
-                print " %s %s" % (i.name, i.attrs)
+                print(" %s %s" % (i.name, i.attrs))
         return current_context
 
     # Old names for backwards compatibility
@@ -1589,7 +1603,7 @@ class SoupStrainer(object):
             else:
                 attrs = kwargs
         normalized_attrs = {}
-        for key, value in attrs.items():
+        for key, value in list(attrs.items()):
             normalized_attrs[key] = self._normalize_search_value(value)
 
         self.attrs = normalized_attrs
@@ -1598,7 +1612,7 @@ class SoupStrainer(object):
     def _normalize_search_value(self, value):
         # Leave it alone if it's a Unicode string, a callable, a
         # regular expression, a boolean, or None.
-        if (isinstance(value, unicode) or callable(value) or hasattr(value, 'match')
+        if (isinstance(value, str) or callable(value) or hasattr(value, 'match')
             or isinstance(value, bool) or value is None):
             return value
 
@@ -1611,7 +1625,7 @@ class SoupStrainer(object):
             new_value = []
             for v in value:
                 if (hasattr(v, '__iter__') and not isinstance(v, bytes)
-                    and not isinstance(v, unicode)):
+                    and not isinstance(v, str)):
                     # This is almost certainly the user's mistake. In the
                     # interests of avoiding infinite loops, we'll let
                     # it through as-is rather than doing a recursive call.
@@ -1623,7 +1637,7 @@ class SoupStrainer(object):
         # Otherwise, convert it into a Unicode string.
         # The unicode(str()) thing is so this will do the same thing on Python 2
         # and Python 3.
-        return unicode(str(value))
+        return str(str(value))
 
     def __str__(self):
         if self.text:
@@ -1677,7 +1691,7 @@ class SoupStrainer(object):
         found = None
         # If given a list of items, scan it for a text element that
         # matches.
-        if hasattr(markup, '__iter__') and not isinstance(markup, (Tag, basestring)):
+        if hasattr(markup, '__iter__') and not isinstance(markup, (Tag, str)):
             for element in markup:
                 if isinstance(element, NavigableString) \
                        and self.search(element):
@@ -1690,7 +1704,7 @@ class SoupStrainer(object):
                 found = self.search_tag(markup)
         # If it's text, make sure the text matches.
         elif isinstance(markup, NavigableString) or \
-                 isinstance(markup, basestring):
+                 isinstance(markup, str):
             if not self.name and not self.attrs and self._matches(markup, self.text):
                 found = markup
         else:
@@ -1698,7 +1712,7 @@ class SoupStrainer(object):
                 "I don't know how to match against a %s" % markup.__class__)
         return found
 
-    def _matches(self, markup, match_against):
+    def _matches(self, markup, match_against, already_tried=None):
         # print u"Matching %s against %s" % (markup, match_against)
         result = False
         if isinstance(markup, list) or isinstance(markup, tuple):
@@ -1713,7 +1727,7 @@ class SoupStrainer(object):
             if self._matches(' '.join(markup), match_against):
                 return True
             return False
-
+        
         if match_against is True:
             # True matches any non-None value.
             return markup is not None
@@ -1723,6 +1737,7 @@ class SoupStrainer(object):
 
         # Custom callables take the tag as an argument, but all
         # other ways of matching match the tag name as a string.
+        original_markup = markup
         if isinstance(markup, Tag):
             markup = markup.name
 
@@ -1733,18 +1748,51 @@ class SoupStrainer(object):
             # None matches None, False, an empty string, an empty list, and so on.
             return not match_against
 
-        if isinstance(match_against, unicode):
+        if (hasattr(match_against, '__iter__')
+            and not isinstance(match_against, str)):
+            # We're asked to match against an iterable of items.
+            # The markup must be match at least one item in the
+            # iterable. We'll try each one in turn.
+            #
+            # To avoid infinite recursion we need to keep track of
+            # items we've already seen.
+            if not already_tried:
+                already_tried = set()
+            for item in match_against:
+                if item.__hash__:
+                    key = item
+                else:
+                    key = id(item)
+                if key in already_tried:
+                    continue
+                else:
+                    already_tried.add(key)
+                    if self._matches(original_markup, item, already_tried):
+                        return True
+            else:
+                return False
+        
+        # Beyond this point we might need to run the test twice: once against
+        # the tag's name and once against its prefixed name.
+        match = False
+        
+        if not match and isinstance(match_against, str):
             # Exact string match
-            return markup == match_against
+            match = markup == match_against
 
-        if hasattr(match_against, 'match'):
+        if not match and hasattr(match_against, 'search'):
             # Regexp match
             return match_against.search(markup)
 
-        if hasattr(match_against, '__iter__'):
-            # The markup must be an exact match against something
-            # in the iterable.
-            return markup in match_against
+        if (not match
+            and isinstance(original_markup, Tag)
+            and original_markup.prefix):
+            # Try the whole thing again with the prefixed tag name.
+            return self._matches(
+                original_markup.prefix + ':' + original_markup.name, match_against
+            )
+
+        return match
 
 
 class ResultSet(list):
@@ -1753,3 +1801,8 @@ class ResultSet(list):
     def __init__(self, source, result=()):
         super(ResultSet, self).__init__(result)
         self.source = source
+
+    def __getattr__(self, key):
+        raise AttributeError(
+            "ResultSet object has no attribute '%s'. You're probably treating a list of items like a single item. Did you call find_all() when you meant to call find()?" % key
+        )
