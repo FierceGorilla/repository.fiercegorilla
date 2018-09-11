@@ -577,8 +577,8 @@ Fixed search issue caused by character accents
 		<datadir zip="true">https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">[COLOR red]Fierce[/COLOR] [COLOR white]Gorilla[/COLOR] [COLOR red]Repository[/Color]</summary>
-		<description lang="en">Fierce Gorilla Repository updated weekly with only the [COLOR red]BEST[/COLOR] addons</description>
+		<summary lang="en">[COLOR red]Fierce[/COLOR] [COLOR white]Gorilla[/COLOR] [COLOR red]Repository[/COLOR]</summary>
+		<description lang="en">[COLOR white]Fierce Gorilla Repository updated weekly with only the[/COLOR] [COLOR red]BEST[/COLOR] [COLOR white]addons[/COLOR]</description>
 		<genre></genre>
 	</extension>
 </addon>
