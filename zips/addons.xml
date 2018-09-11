@@ -540,8 +540,8 @@ Fixed search issue caused by character accents
 	</extension>
 </addon>
 
-<addon id="repository.fiercegorilla" name="Fierce Gorilla Repository" version="0.0.1" provider-name="Fierce Gorilla">
-	<extension point="xbmc.addon.repository" name="Fierce Gorilla Repository">
+<addon id="repository.fiercegorilla" name="[COLOR red]Fierce[/COLOR] [COLOR white]Gorilla[/COLOR] [COLOR red]Repository[/Color]" version="0.0.1" provider-name="Fierce Gorilla">
+	<extension point="xbmc.addon.repository" name="[COLOR red]Fierce[/COLOR] [COLOR white]Gorilla[/COLOR] [COLOR red]Repository[/Color]">
 		<dir>
 			<info compressed="false">https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml</info>
 			<checksum>https://github.com/tvaddonsco/tva-resolvers-repo/raw/master/addons.xml.md5</checksum>
@@ -577,7 +577,7 @@ Fixed search issue caused by character accents
 		<datadir zip="true">https://raw.githubusercontent.com/FierceGorilla/repository.fiercegorilla/master/zips/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">[COLOR red]Fierce Gorilla Repository[/COLOR]</summary>
+		<summary lang="en">[COLOR red]Fierce[/COLOR] [COLOR white]Gorilla[/COLOR] [COLOR red]Repository[/Color]</summary>
 		<description lang="en">Fierce Gorilla Repository updated weekly with only the [COLOR red]BEST[/COLOR] addons</description>
 		<genre></genre>
 	</extension>
