@@ -257,6 +257,35 @@ http://www2.gostream.sc
 	</extension>
 </addon>
 
+<addon id="plugin.video.genesisresurrected" version="7.7.7" name="genesisresurrected" provider-name="NecroMancer">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.Superbeast.artwork" version="1.0.0" />
+		<import addon="script.genesisresurrected.metadata" version="1.0.0" />
+		<import addon="script.module.urlresolver" />
+		<import addon="script.module.metahandler" version="1.0.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="genesisresurrected.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">genesisresurrected</summary>
+		<description lang="en">Kindly note that genesisresurrected is not an official part of the media player you are running, and therefore not to be mentioned within official support channels, this addon has nothing to do with the media player itself, nor it’s intended use, it is simply a third party plugin which has been added to your system.</description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer><platform>all</platform>
+		<forum></forum>
+		<website></website>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+			<screenshot></screenshot>
+			<screenshot></screenshot>
+			<screenshot></screenshot>
+		</assets>
+		<news></news>
+	</extension>
+</addon>
+
 <addon id="plugin.video.incursion" version="0.1.17" name="Incursion" provider-name="Incursion">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
@@ -798,6 +827,18 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	</extension>
 </addon>
 
+<addon id="script.genesisresurrected.metadata" version="7.7.7" name="genesisresurrected Metadata" provider-name="NecroMancer">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the genesisresurrected Addon</summary>
+		<description>Metadata for genesisresurrected are maintained separately to make distribution of the the addon itself easier/faster.</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="script.incursion.artwork" version="1.0.7" name="Incursion Artwork" provider-name="Incursion">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0"/>
@@ -1287,6 +1328,18 @@ This is a Non-profit resource, organized solely for educational purposes which i
 The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.
 This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
         <license>Beerware rev. 42</license>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.Superbeast.artwork" version="7.7.7" name="Superbeast" provider-name="MR.Hatter">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Themes for RLM Addons</summary>
+		<description>Themes for RLM Addons are maintained separately to make distribution of the the addon itself easier/faster.</description>
 		<platform>all</platform>
 	</extension>
 </addon>
