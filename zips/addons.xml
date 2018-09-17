@@ -369,6 +369,28 @@ Fixed search issue caused by character accents
 	</extension>
 </addon>
 
+<addon id="plugin.video.nbaondemand" name="NBA On-demand" version="2.0.8" provider-name="Mr Tron">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.simplejson" optional="true"/>
+		<import addon="script.module.parsedom" optional="true"/>
+		<import addon="plugin.video.youtube" optional="true"/>
+		<import addon="script.module.resolveurl" version="5.0.06"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">NBA on demand</summary>
+		<description lang="en"></description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+		<forum>http://</forum>
+		<source>https://</source>
+		<website>https://</website>
+		<platform>all</platform>
+	</extension>
+</addon>
+
 <addon id="plugin.video.nemesis" name="[COLOR aqua][B]Nemesis[/B][/COLOR]" version="2.3.5" provider-name="[COLOR aqua]Nemzzy[/COLOR]">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -387,6 +409,28 @@ Fixed search issue caused by character accents
     <description lang="en">[COLOR aqua]Nemesis Addon, We Do not host any streams or content, all information available in this addon is obtained using scrappers[/COLOR]</description>
     <platform>all</platform>
   </extension>
+</addon>
+
+<addon id="plugin.video.nhlondemand" name="NHL On-demand" version="2.0.9" provider-name="Mr Tron">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0"/>
+		<import addon="script.module.simplejson" optional="true"/>
+		<import addon="script.module.parsedom" optional="true"/>
+		<import addon="script.module.resolveurl" version="5.0.06"/>
+		<import addon="plugin.video.youtube" optional="true"/>
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="default.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">NHL on demand</summary>
+		<description lang="en"></description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+		<forum>http://</forum>
+		<source>https://</source>
+		<website>https://</website>
+		<platform>all</platform>
+	</extension>
 </addon>
 
 <addon id="plugin.video.numbersbynumbers" version="2.0.0.3" name="[COLOR white][B]NuMbErS[/B][/COLOR]" provider-name="[COLOR gold][B][Brackets][/B][/COLOR]">
