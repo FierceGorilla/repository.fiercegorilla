@@ -353,7 +353,6 @@ Fixed search issue caused by character accents
 	</extension>
 </addon>
 
-<<<<<<< HEAD
 <addon id="plugin.video.invasion" name="[COLORorange]Invasion[/COLOR]" version="1.1" provider-name="Falcon">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
@@ -381,7 +380,8 @@ Fixed search issue caused by character accents
         <website></website>
         <video_guide></video_guide>
     </extension>
-=======
+</addon>
+
 <addon id="plugin.video.magicality" version="6.1.5" name="Magicality" provider-name="Wilson Magic">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
@@ -415,7 +415,6 @@ Fixed search issue caused by character accents
 		<news>
 		</news>
 	</extension>
->>>>>>> 54367bf921e07a817137075974e36c84079f3729
 </addon>
 
 <addon id="plugin.video.movietheaterbutter" version="0.1.17.4" name="Movie Theater Butter" provider-name="Incursion">
