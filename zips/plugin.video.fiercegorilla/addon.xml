@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.fiercegorilla" version="1.0" name="[I][COLOR red]F[/COLOR][COLOR white]i[/COLOR][COLOR red]e[/COLOR][COLOR white]r[/COLOR][COLOR red]c[/COLOR][COLOR white]e[/COLOR] [COLOR red]G[/COLOR][COLOR white]o[/COLOR][COLOR red]r[/COLOR][COLOR white]i[/COLOR][COLOR red]l[/COLOR][COLOR white]l[/COLOR][COLOR red]a[/COLOR][/I]" provider-name="Fierce Gorilla">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.fiercegorilla" />
+		<import addon="script.fiercegorilla.artwork" />
+		<import addon="script.fiercegorilla.metadata" />
+		<import addon="script.module.resolveurl" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.metahandler" version="1.0.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="fiercegorilla.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Fierce Gorilla</summary>
+		<description lang="en">Please visit [COLOR red]www.fiercegorilla.com[/COLOR] for Fierce Gorilla support and assistance! Kindly note that Fierce Gorilla is not an official part of the media player you are running, and therefore not to be mentioned within official support channels, this addon has nothing to do with the media player itself, nor it’s intended use, it is simply a third party plugin which has been added to your system.</description>
+		<disclaimer lang="en">The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<forum>https://www.fiercegorilla.com/forums</forum>
+		<website>https://www.fiercegorilla.com</website>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.jpg</fanart>
+    			<screenshot>resources/screenshots/screenshot-01.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-02.jpg</screenshot>
+    			<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
+		</assets>
+		<news>
+v1.0 (SEP-2018)
+Initial release
+		</news>
+	</extension>
+</addon>
