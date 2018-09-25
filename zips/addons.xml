@@ -704,6 +704,37 @@ This is a Non-profit resource, organized solely for educational purposes which i
   </extension>
 </addon>
 
+<addon id="plugin.video.SaturnusF.O.L" version="2.1" name="[COLOR orange][B]Saturnus[/B][/COLOR][COLOR gray][B]F.O.L[/B][/COLOR]" provider-name="F.O.L">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0" />
+		<import addon="script.module.SaturnusF.O.L" version="1.00.032" />
+		<import addon="script.SaturnusF.O.L.artwork" version="1.0.2" />
+		<import addon="script.SaturnusF.O.L.metadata" version="1.0.2" />
+		<import addon="script.module.resolveurl" version="5.0.0" />
+		<import addon="script.module.requests" />
+		<import addon="script.module.metahandler" version="1.0.0" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="SaturnusF.O.L.py">
+		<provides>video</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" start="startup" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">SaturnusF.O.L</summary>
+		<description lang="en">[COLOR aqua]SaturnusF.O.L Movies and TV. This addon does not form part of the Kodi Media Centre. Please do not seek assistance with this addon from any of the Official Kodi Support Channels. The author does not host any of the content in this addon and takes no responsibility for content found[/COLOR].</description>
+		<disclaimer lang="en">The author of this addon do not host any of the content which is found and have no affiliation with any of the content providers. This addon simply searches websites for content. Use at your own risk!</disclaimer>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<assets>
+			<icon>icon.jpg</icon>
+			<fanart>fanart.gif</fanart>
+    			<screenshot>resources/screenshots/screenshot-01.png</screenshot>
+    			<screenshot>resources/screenshots/screenshot-02.png</screenshot>
+    			<screenshot>resources/screenshots/screenshot-03.png</screenshot>
+		</assets>
+		<news></news>
+	</extension>
+</addon>
+
 <addon
   id="plugin.video.SportsDevil"
   version="20180623"
@@ -1589,6 +1620,18 @@ Kodi is a registered trademark of the XBMC Foundation. We are not connected to o
 	</extension>
 </addon>
 
+<addon id="script.module.SaturnusF.O.L" name="SaturnusF.O.L Module" version="1.00.032" provider-name="F.O.L">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="script.module.requests" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">SaturnusF.O.L</summary>
+	</extension>
+</addon>
+
 <addon id="script.module.schism.common" name="Common Libraries" version="2018.03.10" provider-name="common">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
@@ -1846,6 +1889,30 @@ This is a Non-profit resource, organized solely for educational purposes which i
 The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.
 This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
         <license>Beerware rev. 42</license>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.SaturnusF.O.L.artwork" version="1.0.2" name="SaturnusF.O.L Artwork" provider-name="F.O.L">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Themes for the SaturnusF.O.L Addon</summary>
+		<description></description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.SaturnusF.O.L.metadata" version="1.0.2" name="SaturnusF.O.L Metadata" provider-name="F.O.L">
+	<requires>
+		<import addon="xbmc.python" version="2.19.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Metadata for the SaturnusF.O.L Addon</summary>
+		<description>Metadata for SaturnusF.O.L are maintained separately to make distribution of the the addon itself easier/faster.</description>
 		<platform>all</platform>
 	</extension>
 </addon>
