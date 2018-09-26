@@ -283,7 +283,7 @@ http://www2.gostream.sc
 	</extension>
 </addon>
 
-<addon id="plugin.video.fiercegorilla" version="1.0" name="[I][COLOR red]F[/COLOR][COLOR white]i[/COLOR][COLOR red]e[/COLOR][COLOR white]r[/COLOR][COLOR red]c[/COLOR][COLOR white]e[/COLOR] [COLOR red]G[/COLOR][COLOR white]o[/COLOR][COLOR red]r[/COLOR][COLOR white]i[/COLOR][COLOR red]l[/COLOR][COLOR white]l[/COLOR][COLOR red]a[/COLOR][/I]" provider-name="Fierce Gorilla">
+<addon id="plugin.video.fiercegorilla" version="1.1" name="[I][COLOR red]F[/COLOR][COLOR white]i[/COLOR][COLOR red]e[/COLOR][COLOR white]r[/COLOR][COLOR red]c[/COLOR][COLOR white]e[/COLOR] [COLOR red]G[/COLOR][COLOR white]o[/COLOR][COLOR red]r[/COLOR][COLOR white]i[/COLOR][COLOR red]l[/COLOR][COLOR white]l[/COLOR][COLOR red]a[/COLOR][/I]" provider-name="Fierce Gorilla">
 	<requires>
 		<import addon="xbmc.python" version="2.19.0" />
 		<import addon="script.module.fiercegorilla" />
@@ -313,8 +313,11 @@ http://www2.gostream.sc
     			<screenshot>resources/screenshots/screenshot-03.jpg</screenshot>
 		</assets>
 		<news>
+v1.1 (SEP-26-2018)
+Trakt issue fixed
+
 v1.0 (SEP-2018)
-Initial release
+Initial Release
 		</news>
 	</extension>
 </addon>
