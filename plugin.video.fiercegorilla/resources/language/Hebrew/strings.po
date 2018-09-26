@@ -1,5 +1,5 @@
 # Addon Name: Fierce Gorilla
-# Addon id: plugin.video.exodus
+# Addon id: plugin.video.fiercegorilla
 # Addon Provider: Fierce Gorilla
 # Translators:
 # Translators:

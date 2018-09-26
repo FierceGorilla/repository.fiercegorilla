@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Exodus Add-on
+    FierceGorilla Add-on
     Bubbles Add-on
     Copyright (C) 2016 Bubbles
 

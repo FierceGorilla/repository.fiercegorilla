@@ -1,11 +1,11 @@
 '''
-    Exodus Add-on
-    Copyright (C) 2016 Exodus
+    FierceGorilla Add-on
+    Copyright (C) 2016 FierceGorilla
 
     This has been put in the needs fixing folder as the owner of Filepursuit
     has contacted me and advised that his server is unable to handle the
     amount of requests he has been receiving. In respect I have pulled the
-    source from Exodus regardless to the fact that the cloudflare security
+    source from FierceGorilla regardless to the fact that the cloudflare security
     could be circumvented.
 '''
 

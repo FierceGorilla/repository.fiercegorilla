@@ -8,8 +8,8 @@
  # ----------------------------------------------------------------------------
 #######################################################################
 
-# Addon Name: Exodus
-# Addon id: plugin.video.exodus
+# Addon Name: FierceGorilla
+# Addon id: plugin.video.fiercegorilla
 # Addon Provider: Mr.Blamo
 
 import re,urllib,urlparse,json,base64,time

@@ -130,9 +130,9 @@
       <find>|</find>
     </findStrings>
     <dirStrings>
-      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib</dir>
-      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\to be checked</dir>
-      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\sources</dir>
+      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib</dir>
+      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\to be checked</dir>
+      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\sources</dir>
     </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -234,14 +234,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\sources\en" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\sources\en" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\to be checked" />
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\confirmed-working" />
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\sources\en" />
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\to_be_fixed\needsfixing\post-19-apr-2018" />
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\to_be_fixed\sitedown" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\to be checked" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\confirmed-working" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\sources\en" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\to_be_fixed\needsfixing\post-19-apr-2018" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\to_be_fixed\sitedown" />
     </key>
   </component>
   <component name="RunManager" selected="Python.test (1)">

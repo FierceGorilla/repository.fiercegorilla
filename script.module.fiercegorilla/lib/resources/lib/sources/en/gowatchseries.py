@@ -8,9 +8,9 @@
  # ----------------------------------------------------------------------------
 #######################################################################
 
-# Addon Name: Exodus
-# Addon id: plugin.video.exodus
-# Addon Provider: Exodus
+# Addon Name: FierceGorilla
+# Addon id: plugin.video.fiercegorilla
+# Addon Provider: FierceGorilla
 
 import re,urllib,urlparse,time,json
 

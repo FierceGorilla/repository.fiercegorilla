@@ -21,7 +21,7 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="settings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../../../../plugin.video.exodus/resources/settings.xml">
+        <entry file="file://$PROJECT_DIR$/../../../../../../plugin.video.fiercegorilla/resources/settings.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3689">
               <caret line="217" column="29" lean-forward="false" selection-start-line="217" selection-start-column="29" selection-end-line="217" selection-end-column="29" />
@@ -147,9 +147,9 @@
       <find>delete</find>
     </findStrings>
     <dirStrings>
-      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\sources</dir>
-      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\modules</dir>
-      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\sources\en</dir>
+      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\sources</dir>
+      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\modules</dir>
+      <dir>C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\sources\en</dir>
     </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -162,7 +162,7 @@
         <option value="$PROJECT_DIR$/movie4kis.py" />
         <option value="$PROJECT_DIR$/onetwothree.py" />
         <option value="$PROJECT_DIR$/2dll.py" />
-        <option value="$PROJECT_DIR$/../../../../../../plugin.video.exodus/resources/settings.xml" />
+        <option value="$PROJECT_DIR$/../../../../../../plugin.video.fiercegorilla/resources/settings.xml" />
         <option value="$PROJECT_DIR$/pubfilmonline.py" />
         <option value="$PROJECT_DIR$/furk.py" />
       </list>
@@ -316,11 +316,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\to_be_fixed\needsfixing" />
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\sources\en" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\to_be_fixed\needsfixing" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\sources\en" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.exodus\lib\resources\lib\sources\en" />
+      <recent name="C:\Users\Patty\AppData\Roaming\Kodi\addons\script.module.fiercegorilla\lib\resources\lib\sources\en" />
     </key>
   </component>
   <component name="RunManager" selected="Python.pubfilmonline">
@@ -835,7 +835,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../../../plugin.video.exodus/resources/settings.xml">
+    <entry file="file://$PROJECT_DIR$/../../../../../../plugin.video.fiercegorilla/resources/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3689">
           <caret line="217" column="29" lean-forward="false" selection-start-line="217" selection-start-column="29" selection-end-line="217" selection-end-column="29" />

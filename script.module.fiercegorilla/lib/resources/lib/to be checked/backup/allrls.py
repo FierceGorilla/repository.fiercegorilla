@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 '''
-    Exodus Add-on
+    FierceGorilla Add-on
 
-    This is a new script added for the Exodus add-on.
+    This is a new script added for the FierceGorilla add-on.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

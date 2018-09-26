@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 """
-    //Exodus Add-on//
-    Updated for Exodus Add-on
+    //FierceGorilla Add-on//
+    Updated for FierceGorilla Add-on
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
