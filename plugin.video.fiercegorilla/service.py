@@ -24,25 +24,25 @@ control.execute('RunPlugin(plugin://%s)' % control.get_plugin_url({'action': 'se
 
 def syncTraktLibrary():
     control.execute(
-        'RunPlugin(plugin://%s)' % 'plugin.video.exodus/?action=tvshowsToLibrarySilent&url=traktcollection')
+        'RunPlugin(plugin://%s)' % 'plugin.video.fiercegorilla/?action=tvshowsToLibrarySilent&url=traktcollection')
     control.execute(
-        'RunPlugin(plugin://%s)' % 'plugin.video.exodus/?action=moviesToLibrarySilent&url=traktcollection')
+        'RunPlugin(plugin://%s)' % 'plugin.video.fiercegorilla/?action=moviesToLibrarySilent&url=traktcollection')
 
 try:
-    ModuleVersion = control.addon('script.module.exodus').getAddonInfo('version')
-    AddonVersion = control.addon('plugin.video.exodus').getAddonInfo('version')
-    #RepoVersion = control.addon('repository.exodus').getAddonInfo('version')
+    ModuleVersion = control.addon('script.module.fiercegorilla').getAddonInfo('version')
+    AddonVersion = control.addon('plugin.video.fiercegorilla').getAddonInfo('version')
+    #RepoVersion = control.addon('repository.fiercegorilla').getAddonInfo('version')
 
-    log_utils.log('######################### EXODUS ############################', log_utils.LOGNOTICE)
-    log_utils.log('####### CURRENT EXODUS VERSIONS REPORT ######################', log_utils.LOGNOTICE)
-    log_utils.log('### EXODUS PLUGIN VERSION: %s ###' % str(AddonVersion), log_utils.LOGNOTICE)
-    log_utils.log('### EXODUS SCRIPT VERSION: %s ###' % str(ModuleVersion), log_utils.LOGNOTICE)
-    #log_utils.log('### EXODUS REPOSITORY VERSION: %s ###' % str(RepoVersion), log_utils.LOGNOTICE)
+    log_utils.log('######################### FIERCE GORILLA ############################', log_utils.LOGNOTICE)
+    log_utils.log('####### CURRENT FIERCE GORILLA VERSIONS REPORT ######################', log_utils.LOGNOTICE)
+    log_utils.log('### FIERCE GORILLA PLUGIN VERSION: %s ###' % str(AddonVersion), log_utils.LOGNOTICE)
+    log_utils.log('### FIERCE GORILLA SCRIPT VERSION: %s ###' % str(ModuleVersion), log_utils.LOGNOTICE)
+    #log_utils.log('### FIERCE GORILLA REPOSITORY VERSION: %s ###' % str(RepoVersion), log_utils.LOGNOTICE)
     log_utils.log('###############################################################', log_utils.LOGNOTICE)
 except:
-    log_utils.log('######################### EXODUS ############################', log_utils.LOGNOTICE)
-    log_utils.log('####### CURRENT EXODUS VERSIONS REPORT ######################', log_utils.LOGNOTICE)
-    log_utils.log('### ERROR GETTING EXODUS VERSIONS - NO HELP WILL BE GIVEN AS THIS IS NOT AN OFFICIAL EXODUS INSTALL. ###', log_utils.LOGNOTICE)
+    log_utils.log('######################### FIERCE GORILLA ############################', log_utils.LOGNOTICE)
+    log_utils.log('####### CURRENT FIERCE GORILLA VERSIONS REPORT ######################', log_utils.LOGNOTICE)
+    log_utils.log('### ERROR GETTING FIERCE GORILLA VERSIONS - NO HELP WILL BE GIVEN AS THIS IS NOT AN OFFICIAL FIERCE GORILLA INSTALL. ###', log_utils.LOGNOTICE)
     log_utils.log('###############################################################', log_utils.LOGNOTICE)
 
 if control.setting('autoTraktOnStart') == 'true':
